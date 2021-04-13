@@ -35,3 +35,10 @@
 ip, tcp were more of transportation of data. http introduces the opportunity to add business logic
 
 ---
+### Storage
+- data persistence
+    - disk
+        - writing data to disk means data will still exists even if database server goes down
+    - memory
+        - writing data to memory means data will be lost if database server goes down
+        - writing/reading data to memory is much faster as compared to disk
