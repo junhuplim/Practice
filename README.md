@@ -16,7 +16,22 @@
         - ensures order of packets in an error free way (knows if packets are corrupted)
         - also knows when packets keep failing to get received
     - tcp header part of the ip packet
+    - communicate with other machines through handshake
+    - problem with tcp is it is not robust for developers
 
-- HTTP
-    -
+- HTTP (hyper text transfer protocol)
+    - machines communicates with a request-response paradigm
+    - request contains
+        - host and port which determines destination machine
+        - method (post/get/put/delete etc)
+        - path (server might have multiple paths for different services/logics)
+        - headers (key-value pair which contains important metadata)
+        - body (the data)
+    - response contains
+        - status code (type of responses eg: 404 means data not found)
+        - headers (key-value pair which contains important metadata)
+        - body (the data)
+
+ip, tcp were more of transportation of data. http introduces the opportunity to add business logic
+
 ---
