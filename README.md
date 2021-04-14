@@ -68,3 +68,17 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
         - writing/reading data to memory is much faster as compared to disk
 
 ---
+### Latency and Throughput
+- latency
+    - time it takes for a certain operation to complete in a system. mostly measures time duration (milliseconds or seconds)
+        - reading 1 mb from ram: 0.25ms (read from local variable)
+        - reading 1 mb from ssd: 1ms
+        - transfering 1 mb over 1gbps network: 10ms (api call)
+        - reading 1 mb from hdd: 20ms
+        - packet inter-continental round trip: 150ms
+
+- throughput
+    - the number of operations that a system can handle properly per time unit. (eg throughput of server can be measured in requests per second, like 1gbps)
+    - one way to handle throughput bottleneck is to have multiple servers
+
+- latency and throughput are not necessarily correlated and do not have a relationship with one another
