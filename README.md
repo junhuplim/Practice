@@ -82,3 +82,21 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
     - one way to handle throughput bottleneck is to have multiple servers
 
 - latency and throughput are not necessarily correlated and do not have a relationship with one another
+
+---
+### Availability
+- availability
+    - odds of server/service being up and running at any point in time (measured in nines)
+- nines
+    - percentages of  uptime
+    - two 9s = 99% (87.7 hours)
+    - five 9s = 99.999% (5.3 minutes)
+- redundancy
+    - process of replicating parts of a system
+    - prevents a single point of failure, eg: replicating more servers with mutliple load balancer etc
+    - passive redundancy and active redundancy
+- sla (service-level agreement)
+    - collection of guarantees given to a customer by a service provider
+
+---
+### Caching
