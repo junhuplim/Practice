@@ -123,4 +123,10 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
     - popular CDNs: cloudfare and google cloud CDN
 ---
 ### Proxies
-
+- forward proxy
+    - a server that sits between a client and servers and acts on behalf of the client
+    - used to mask client's ip address
+- reverse proxy
+    - a server that sits between clients and servers and acts on behalf of the servers, typicall used for logging, load balancing or caching
+- nginx
+    - webserver thats often used as reverse proxy and load balancer
