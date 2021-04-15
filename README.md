@@ -100,3 +100,27 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 
 ---
 ### Caching
+- cache
+    - piece of hardware or software that stores data, whereby retrieving data from it will be faster
+    - often used to store responses to network requests/ computationally long operations
+    - data in cache can become stale if main source of truth gets updated but cache doesn't
+    - cache hit: requested data found in cache
+    - cache miss: requested data could have been found in cache but is not
+- write back cache and write through cache
+    - write back: information is written only to cache but not to main storage. modified cache only written to main storage when it is replaced
+    - write through: information is written to both the cache and the main storage
+- cache eviction policy
+    - policy by which values get evicted or removed from cache
+        - LRU (least recently used)
+        - FIFO (first in first out)
+        - LFU (least frequently used)
+- content delivery network (CDN)
+    - a third party service that acts like a cache for our servers
+    - web applications can be slow for users in particular region if our servers is located in another region
+        - cdn has servers all around the world
+        - latency to a cdn server > latency to own server
+    - cdn server often referred to as PoPs (points of presence)
+    - popular CDNs: cloudfare and google cloud CDN
+---
+### Proxies
+
