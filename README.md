@@ -121,6 +121,7 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
         - latency to a cdn server > latency to own server
     - cdn server often referred to as PoPs (points of presence)
     - popular CDNs: cloudfare and google cloud CDN
+
 ---
 ### Proxies
 - forward proxy
@@ -130,3 +131,24 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
     - a server that sits between clients and servers and acts on behalf of the servers, typicall used for logging, load balancing or caching
 - nginx
     - webserver thats often used as reverse proxy and load balancer
+
+---
+### Load Balancer
+- load balancer is a type of reverse proxy that distribute traffic across servers
+- load balancers can be found in many parts of a system, from dns layer all the way to database layer
+- to ensure that you do not overload server (ensures server has optimal throughput)
+    - can have multiple servers
+    - need a load balancer to distribute the traffic across these servers
+- there are several server selection strategy that a load balancer can have
+    - round-robin (go through all server in a loop continuously)
+    - weighted round-robin (round robin with set weights, more weights equates to more traffic distributed)
+    - random selection
+    - performance-based (monitor servers performance metrics- response time/amount of traffic etc to decide how much to distribute)
+    - ip-based routing (depending on client's ip, hash and direct to selected index server of hash result, this method helps to maximise cache hits since same client ip address is always directed to same server)
+    - path-based routing (different path calls get routed to different server, for eg /api domain will be routed to a particular server and /help to another. helps with separation of concerns)
+- most of the time, always good to have multiple load balancer in multiple parts of the systems (different layers) with the different selection strategy that optimise the entire system
+- hot spot
+    - workload might be spread unevenly when distributing across a set of servers
+    - happens when sharding key or hash function are suboptimal (or workload naturally skewed)
+    - some servers will receive a lot more traffic than others, hence creating a 'hot spot'
+- nginx can be used as a reverse proxy and load balancer
