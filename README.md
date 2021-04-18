@@ -156,3 +156,17 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 
 ---
 ### Hashing **important** [works hand in hand in load balancer concept]
+- problem happens when one server crashes or new server is introduced, basic naive modolu function on hashed result will result in cache miss again (clients will be redirected to another index of servers)
+- consistent hashing
+    - a type of hashing that minimizes the number of keys that need to be remapped when a hash table gets resized
+    - often used by load balancers to distribute traffic to servers
+    - minimizes numbers of requests that get forwarded to different serverse when new servers are added or existing servers are brought down; maximises cache hits
+    - visualised as a circle where servers and clients are hashed to a position in the circle
+        - where clients go to their nearest clockwise servers for their requests
+- rendevzous hashing
+    - a type of hashing also coined as highest random weight hashing
+    - similarly, allows for minimal re-distribution of mappings when a server goes down or new server is brought in
+    - basically each client calculate a scoreset to existing servers and choose the server with highest score; only clients who picked the server that was brought down as the highest score wil be reallocated to a new server
+- secure hash algorithms (SHA)
+    - a collection of cryptographic hash functions used in industry
+        - SHA-3 is the popular choice to use currently
