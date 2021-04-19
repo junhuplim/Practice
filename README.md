@@ -156,6 +156,9 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 
 ---
 ### Hashing [works hand in hand in load balancer concept]
+- hashing function
+    - takes in a specific data type (such as string or an identifier) and outputs a number
+    - diff inputs may have same outputs, but a good hashing function minimise these hashing collisions (equivalent to maximising uniformity)
 - problem happens when one server crashes or new server is introduced, basic naive modolu function on hashed result will result in cache miss again (clients will be redirected to another index of servers)
 - consistent hashing
     - a type of hashing that minimizes the number of keys that need to be remapped when a hash table gets resized
@@ -170,3 +173,7 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 - secure hash algorithms (SHA)
     - a collection of cryptographic hash functions used in industry
         - SHA-3 is the popular choice to use currently
+
+---
+### Relational Databases
+-
