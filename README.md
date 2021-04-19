@@ -188,4 +188,34 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
         - hence need to write data to disk
     - some machines die often in large scale systems
         - special disk partitions or volumes are used by db processes, and those volumes get recovered even if machines were to go down permanently
--
+- relational db vs non-relational db
+    - relational db: a type of structured db in which data is stored following a tabular format; often supports powerful querying using SQL
+    - non-relational db: a type of db that is free of imposed, tabular-like structure; often referred to as NoSQL db
+- SQL db vs NoSQL db
+    - SQL = structured query language
+    - SQL db: any db that supports SQL; term synonymously used with relational db
+    - NoSQL db: any db that is not SQL-compatible
+- ACID transaction
+    - a type of db transaction that has four important properties
+        - Atomicity
+            - operations that constitute the transaction will either all succeed or all fail; no inbetween state
+        - Consistency
+            - transaction cannot bring all db to an invalid state
+            - after transaction is committed or rolled back, the rules for each record will still apply; and all future transactions will see effect of the current transaction (also named Strong Consistency)
+        - Isolation
+            - execution of multiple transactions concurrently will have same effect as if they had been executed sequentially
+        - Durability
+            - any committed transaction is written to non-volatile storage; will not be undone by a crash, powerloss or network partition
+- database index
+    - special auxiliary data structure that allows db to perform certain queries much faster
+    - indexes can typically only exist to reference structured data, like data stored in relational db
+    - in practice, create an index on one or multiple columns in your db
+        - greatly speed up read queries that you run very often
+        - with downside of slightly longer writes to the db since writes have to also take place in relevant index
+- strong consistency vs eventual consistency
+    - strong consistency: consistency explained in ACID
+    - eventual consistency: reads might return a view of system that is stale
+        - eventually consistent db gives guarantee that the state of the db will eventually reflect writes within a time period (could be 10secs or minutes)
+- postgres
+    - a relational db that uses a dialect of SQL calleded postgreSQL
+    - provides ACID transactions
