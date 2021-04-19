@@ -61,8 +61,12 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 ---
 ### Storage
 - data persistence
-    - disk
+    - disk (also known as non-volatile storage)
+        - usually referred to HDD (hard-disk drive) or SSD (solid-state drive)
         - writing data to disk means data will still exists even if database server goes down
+        - SSD is far faster than HDD but also far more expensive from a financial point of view
+            - hence, HDD typically used for data that is rarely accessed/updated thats stored for a long time
+            - SSD will be used for data thats frequently accessed and updated
     - memory
         - writing data to memory means data will be lost if database server goes down
         - writing/reading data to memory is much faster as compared to disk
@@ -176,4 +180,12 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 
 ---
 ### Relational Databases
+- database are programs that use disk or memory to do 2 things: record data and query data
+    - generally are servers themselves and interact with rest of application through network
+    calls
+    - some db keeps records in memory, but they are aware that these records will be lost forever if machine/process dies
+    - need persistence of these records, thus cannot use memory
+        - hence need to write data to disk
+    - some machines die often in large scale systems
+        - special disk partitions or volumes are used by db processes, and those volumes get recovered even if machines were to go down permanently
 -
