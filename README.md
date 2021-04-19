@@ -133,7 +133,7 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
     - webserver thats often used as reverse proxy and load balancer
 
 ---
-### Load Balancer **important** [works hand in hand with hashing concept]
+### Load Balancer [works hand in hand with hashing concept]
 - load balancer is a type of reverse proxy that distribute traffic across servers
 - load balancers can be found in many parts of a system, from dns layer all the way to database layer
 - to ensure that you do not overload server (ensures server has optimal throughput)
@@ -155,12 +155,12 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 - nginx can be used as a reverse proxy and load balancer
 
 ---
-### Hashing **important** [works hand in hand in load balancer concept]
+### Hashing [works hand in hand in load balancer concept]
 - problem happens when one server crashes or new server is introduced, basic naive modolu function on hashed result will result in cache miss again (clients will be redirected to another index of servers)
 - consistent hashing
     - a type of hashing that minimizes the number of keys that need to be remapped when a hash table gets resized
     - often used by load balancers to distribute traffic to servers
-    - minimizes numbers of requests that get forwarded to different serverse when new servers are added or existing servers are brought down; maximises cache hits
+    - minimizes numbers of requests that get forwarded to different servers when new servers are added or existing servers are brought down; maximises cache hits
     - visualised as a circle where servers and clients are hashed to a position in the circle
         - where clients go to their nearest clockwise servers for their requests
 - rendevzous hashing
