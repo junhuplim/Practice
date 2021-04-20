@@ -267,3 +267,18 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
             - parts of grid that have many subdivided rectangles represent densely populated areas whereas parts of grid that have few subdivided rectangles represent sparsely populated areas
         - finding a given location then in a perfect quadtree is fast (log4(x)) time, since quadtree has four children nodes
 
+---
+### Replication and Sharding
+- replication
+    - act of duplicating data from one db server to others
+    - used to increase redundancy of system and to tolerate regional failures for instance
+    - can also use replication to move data closer to clients, decreasing latency of accessing specific data
+- sharding
+    - aka data partitioning; act of splitting a db into two or more pieces called shards
+    - done to increase throughput of db
+    - popular sharding strategies include:
+        - sharding based on client's region
+        - sharding based on type of data being stored
+        - sharding based on hash of a column (only for structured data)
+- normally do not want to place the sharding logic on your server, but on the reverse proxy inbetween your server and the shards db; reverse proxy then decides which shards to forward requests to
+- concept of hashing is important to decide sharding logic to minimize any hotspots (as hashing decides which shard db to read and write to)
