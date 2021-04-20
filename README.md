@@ -282,3 +282,16 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
         - sharding based on hash of a column (only for structured data)
 - normally do not want to place the sharding logic on your server, but on the reverse proxy inbetween your server and the shards db; reverse proxy then decides which shards to forward requests to
 - concept of hashing is important to decide sharding logic to minimize any hotspots (as hashing decides which shard db to read and write to)
+
+---
+### Leader Election
+- process by which nodes in a cluster (servers in a set of servers) elect a so-called 'leader' amongst them, responsible for the primary operations of the serve that these nodes support
+    - when correctly implemented, leader election guarantees that all nodes in the cluster know which one is the leader at any given time and can elect a new leader if the leader dies for whatever reason
+    - the compliated part is having all the distributed servers sharing the consensus in real time (which consensus algorithms solve)
+= consensus algorithms
+    - a type of complex algorithms used to have multiple entities agree on a single data value; for eg who the leader is amongst a group of machines
+    - 2 popular consensus algo are paxos and raft
+- paxos and raft
+    - 2 consensus algorithms that when implemented correctly, allow for synchronization of certain operations, even in a distributed setting
+- etcd implements raft consensus algorithm under the hood
+- you can use etcd as a third party service that utilise raft consensus algorithm to build your own simple leader election system in practice
