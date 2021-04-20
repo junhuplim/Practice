@@ -219,3 +219,19 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 - postgres
     - a relational db that uses a dialect of SQL calleded postgreSQL
     - provides ACID transactions
+
+---
+### Key-Value Stores
+- key-value store
+    - a flexible NoSQL db that's often used for caching and dynamic configuration
+    - popular options include dynamoDB, etcd, redis and zookeeper
+- etcd
+    - a strongly consistent and highly available key-value store thats often used to implement leader election in a system
+- redis
+    - an in-memory key-value store
+    - offers some persistent storage options but is typically used as a really fast, best-effort caching solution
+    - also used to implement rate limiting
+- zookeeper
+    - strongly consistent, highly available key-value store thats often used to store important configuration or to perform leader election
+
+---
