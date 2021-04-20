@@ -295,3 +295,18 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
     - 2 consensus algorithms that when implemented correctly, allow for synchronization of certain operations, even in a distributed setting
 - etcd implements raft consensus algorithm under the hood
 - you can use etcd as a third party service that utilise raft consensus algorithm to build your own simple leader election system in practice
+
+---
+### Peer-to-Peer Networks
+- bottleneck problem happens when one machine has to transfer files to thousand of machines (have to transfer files one machine by one machine)
+    - cannot be solved simply by replicating the files and having more machines to transfer
+        - replication of files might not be efficient and unnecessary
+    - sharding the files to be transferred will not work since bottleneck issue of one machine having to transfer to thousand of machines still exists
+- peer-to-peer network is a collection of machines referred to as peers that divide a workload between themselves to presumably complete the workload faster than would otherwise be possible
+    - often used in file-distribution sysytems
+    - peer-to-peer network makes use of parralelism to be fast and efficient
+    - kraken by google distributes 20k 100mb-1g blobs in under 30seconds
+    - concept of torrenting is a peer-to-peer network too
+- for the peers to know which peer to look for next, they follow a protocol like gossip protocol
+    - gossip protocol refers to the strategy when a set of machines talk to each other in a uncoordinated manner in a cluster to spread information through a system without requiring a central source of data
+    - also makes use of distributed hash table (DHT) for communication
