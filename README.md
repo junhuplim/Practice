@@ -235,3 +235,35 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
     - strongly consistent, highly available key-value store thats often used to store important configuration or to perform leader election
 
 ---
+### Specialized Storage Paradigms
+- blob storage
+    - widely used kind of storage for both small and large scale systems that only allow user to store and retrieve data
+    - usually used to store things like large binaries, database snapshots or images
+    - sort of like a key-value store but usually blob stores have different guarantees
+    - might be slower than kv stores but values can be megabytes large (or sometimes gigabytes large)
+    - examples is google's gcs, amazon' s3 and microsoft's azure
+- time series db
+    - special kind of db that is optimized for storing and analyzing time-indexed data; data points that specifically occur at a given moment in time
+    - examples are influxdb, prometheus and graphite
+- graph db
+    - type of db that stores data following the graph data model
+    - data entries in graph db can have explicitly defined rs, like nodes in graph can have edges
+    - graph db takes advantage of their underlying graph structure to perform complex queries on deeply connected data very fast
+    - often preferred to relational db when dealing with systems where data points naturally form a graph and can have multiple levels of rs (eg social network)
+    - example of graph db is neo4j; consists of nodes, rs, properties and labels
+    - cypher
+        - a graph query langauge that was originally developed for the neo4j graph db; but has since been standardized to be used with other graph db in an effort to make it the 'SQL for graphs'
+        - cypher queries are much simpler than their sql counterparts
+- spatial db
+    - type of db optimized for storing and querying spatial data like locations on a map
+    - relies on spatial indexes like quadtrees to quickly perform spatial queries like finding all locations in the vicinity of a region
+    - quadtree
+        - a tree data structure commonly used to index 2D spatial data; each node in a quadtree has either 0 children or 4 children
+        - quadtree is good to store spatial data because it can be represented as a grid filled with rectangles that are recursively subdivided into four sub-rectangles; can imagine a quadtree with a maximum node-capacity n as follows:
+            - the root node represents the entire world is the most outermost rectangle
+            - if the entire world has more than n locations, corresponding rectange is divided into four quadrants, each representing a region of the world
+            - so long as a region has more than n locations, corresponding rectangle will be further subdivded into four qraduants
+            - regions that have fewer than n locations will remain undivided and stay as leaf nodes
+            - parts of grid that have many subdivided rectangles represent densely populated areas whereas parts of grid that have few subdivided rectangles represent sparsely populated areas
+        - finding a given location then in a perfect quadtree is fast (log4(x)) time, since quadtree has four children nodes
+
