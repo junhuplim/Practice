@@ -322,3 +322,13 @@ i---
 - streaming
     - refers to the act of continuously getting a feed of information from a server by keeping an open connection between the two machines or processes (mostly using a socket)
 -  if you need instantaneous data, streaming will be more useful; if need snapshots every x seconds, polling will be more useful
+
+---
+### Configuration
+- configuration is a set of parameters or constants that are critical to the system
+    - config files mostly in json file format
+    - can be static
+        - hard-coded in and shipped with system's application code
+        - have to redeploy app whenever changes to config file is made to see the changes
+    - or dynamic
+        - lives outside the system's application code
