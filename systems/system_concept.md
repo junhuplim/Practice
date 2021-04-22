@@ -333,3 +333,32 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
     - or dynamic
         - lives outside the system's application code
 
+---
+### Rate Limiting
+- act of limiting the number of requests sent to or from a systes
+    - often used to limit the number of incoming requests in order to prevent DoS attacks
+    - can be enforced at the IP-address level, user-account level or region leves
+    - rate limiting can be implemented in tiers; for instance, a type of network req could be limited to 1 per second, 5 per 10seconds, 10 per minute
+- DoS attack
+    - denial of service attack; an attack in which a malicious user tries to bring down or damage a system in order to render it unavailable to users
+    - consists of flooding it with traffic
+    - can be prevented with rate limiting
+- DDoS
+    - distributed DoS; attack which the traffic flooding the system comes from many different sources, making it harder to defend against
+- redis is often used to implement rate limiting
+
+---
+### Logging and Monitoring
+- logging
+    - act of collecting and storing logs --useful information about events in your system
+    - typically your programs will output log messages to STDOUT or STDERR pipes, which will automatically get aggregated into a centralized logging solution
+- monitoring
+    - process of having visibility into a system's key metrics
+    - monitoring is typically implemented by collecting important events in a system and aggregrating them into a human-readable charts
+-  alerting
+    - process through which system admins get notified when critical system issues occur
+    - alerting can be set up by defining specific thresholds on monitoring charts, past which alerts are sent to a communication channel like slack
+
+
+
+
