@@ -296,7 +296,7 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 - etcd implements raft consensus algorithm under the hood
 - you can use etcd as a third party service that utilise raft consensus algorithm to build your own simple leader election system in practice
 
----
+i---
 ### Peer-to-Peer Networks
 - bottleneck problem happens when one machine has to transfer files to thousand of machines (have to transfer files one machine by one machine)
     - cannot be solved simply by replicating the files and having more machines to transfer
@@ -310,3 +310,15 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 - for the peers to know which peer to look for next, they follow a protocol like gossip protocol
     - gossip protocol refers to the strategy when a set of machines talk to each other in a uncoordinated manner in a cluster to spread information through a system without requiring a central source of data
     - also makes use of distributed hash table (DHT) for communication
+
+---
+### Polling and Streaming
+- socket
+    - a kind of file that acts like a stream (a long lived connection until closed)
+    - processes can read and write to sockets and communicate in this manner
+    - most of the time the sockets are fronts for TCP connection
+- polling
+    - act of fetching a resource or a piece of data regularly at an interval to make sure your data is not too stale
+- streaming
+    - refers to the act of continuously getting a feed of information from a server by keeping an open connection between the two machines or processes (mostly using a socket)
+-  if you need instantaneous data, streaming will be more useful; if need snapshots every x seconds, polling will be more useful
