@@ -296,7 +296,7 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 - etcd implements raft consensus algorithm under the hood
 - you can use etcd as a third party service that utilise raft consensus algorithm to build your own simple leader election system in practice
 
-i---
+---
 ### Peer-to-Peer Networks
 - bottleneck problem happens when one machine has to transfer files to thousand of machines (have to transfer files one machine by one machine)
     - cannot be solved simply by replicating the files and having more machines to transfer
@@ -332,3 +332,4 @@ i---
         - have to redeploy app whenever changes to config file is made to see the changes
     - or dynamic
         - lives outside the system's application code
+
