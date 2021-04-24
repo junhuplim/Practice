@@ -359,6 +359,18 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
     - process through which system admins get notified when critical system issues occur
     - alerting can be set up by defining specific thresholds on monitoring charts, past which alerts are sent to a communication channel like slack
 
-
-
-
+---
+### Publish/Subscribe Pattern
+- uses concept of polling and streaming
+- often shortened as pub/sub, the pub/sub pattern is a popular messaging model that consists of publishers and subscribers
+    - publishers publish messages to special topics (channels) without caring about or even knowing who will read those messages
+    - subscribers subscribe to topics and read messages coming through these topics
+    - often come with very powerful guarantee like at-least-once delivery, persistent storage, ordering of messages and replayability of messages
+- idempotent operation
+    - an operation that has the same ultimate outcome regardless of how many times it has been executed
+    - operations performed through a pub/sub messaging system typically have to be idempotent, since pub/sub systems tend to allow the same messages to be consumed multiple times
+    - eg setting a value to 'complete' is an idempotent operation
+- apache kafka
+    - a distributed messaging system created by linkedin; very useful when using the streaming paradigm as opposed to polling
+- cloud pub/sub
+    - a high-scalable pub/sub messaging service created by google; guarantees at-least-once delivery of messages and supports 'rewinding' in order to reprocess messages
