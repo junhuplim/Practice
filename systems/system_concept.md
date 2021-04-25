@@ -374,3 +374,22 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
     - a distributed messaging system created by linkedin; very useful when using the streaming paradigm as opposed to polling
 - cloud pub/sub
     - a high-scalable pub/sub messaging service created by google; guarantees at-least-once delivery of messages and supports 'rewinding' in order to reprocess messages
+
+---
+### MapReduce
+- a popular framework for processing very large datasets in a distributed setting efficiently, quickly and in a fault-tolerant manner
+- mapreduce job comprises of 3 steps:
+    - map step; runs a map function on various chunks of dataset and transforms these chunks into intermediate key-value pairs
+    - shuffle step; reorganizes the intermediate key-value pairs succh that pairs of the same key are routed to the same machine in final step
+    - reduce step; runs a reduce function on the newly shuffled key-value pairs and transforms them into more meaningful data
+- canonical example of mapreduce use case is counting the number of occurences of words in a large text file
+- when dealing with a mapreduce library, engineers only need to worry about the map and reduce functions, as well as their inputs and outputs
+    - all other concerns - like parralelization of tasks and the fault-tolerance of mapreduce job - are abstracted away and taken care of by the mapreduce implementation
+- distributed file system (DFS)
+    - abstraction over a large cluster of machines that allows them to act like one large file system
+    - two most popular implementations are the google file system (gfs) and the hadoop distributed system (hdfs)
+    - typically, DFSs take care of the classic availability and replication guarantees that can be tricky to obtain in a distributed-system setting
+        - overarching idea is that files are split into chunks of certain size and are sharded across a large cluster of machines
+        - a central control plane is in charge of deciding where each chunk resides, routing reads to the right nodes, and handling communication between machines
+        - goal is to have extremely large scale persistent storage
+- hadoop is one popular open source framework that supports mapreduce jbos and many other kinds of data-processing pipelines
