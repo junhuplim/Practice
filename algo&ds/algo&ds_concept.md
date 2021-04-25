@@ -11,3 +11,17 @@
     - bytes in memory can point to other bytes in memory; concept of storing references
     - amount of memory a machine has is limited
     - accessing a byte or a fixed number of bytes is an elementary operation; can be loosely treated as a single unit of operation work
+
+---
+### Hash Tables
+- under the hood, hash tables uses a dynamic array of linked lists to efficiently store key-value pairs
+    - when inserting a key-value pair, hash function first maps the key to an integer value and by extension, to an index in the underlying dynamic array
+        - dynamic array means it can be resized to fit different sizes
+    - then, the value of the associated key is added to the linked list stored at that index in the dynamic array, and a reference to the key is also stored with the value of the associated
+- hash tables relies heavily on optimized hash functions to minimize the number of collisions that occur when storing values; cases where 2 key maps to the same index
+- complexities
+    - inserting: O(1) on average, O(n) in worse case
+    - removing: O(1) on average, O(n) in worse case
+    - looking up a key: O(1) on average, O(n) in worse case
+    - worst-case linear time operations occur when a hash table experiences a lot of collisions, leading to long linked lists internally which takes O(n) time to traverse
+- in context of interviews can typically assume hash functions employed by hash tables are so optimized that colisions are extremely rare and constant-time operations are guaranteed
