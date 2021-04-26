@@ -392,4 +392,41 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
         - overarching idea is that files are split into chunks of certain size and are sharded across a large cluster of machines
         - a central control plane is in charge of deciding where each chunk resides, routing reads to the right nodes, and handling communication between machines
         - goal is to have extremely large scale persistent storage
-- hadoop is one popular open source framework that supports mapreduce jbos and many other kinds of data-processing pipelines
+- hadoop is one popular open source framework that supports mapreduce jobs and many other kinds of data-processing pipelines
+
+---
+### Security and HTTPS
+- man in the middle (mitm) attack
+    - an attack in which the attacker intercepts a line of communication that is thought to be private by its two communicating parties
+    - happens when a malicious actor intercepted and mutated an IP packaet on its way from a client to a server
+    - mitm attacks are the primary threats that encryption and https aim to defend against
+- symmetric vs asymmetric encryption
+    - symmetric encryption
+        - a type of encryption that relies on only a single key to both encrypt and decrypt data
+        - key must be known to all parties involved in communication and must therefore be shared between the parties at one point or another
+        - symmetric key algorithms tend to be faster than their asymmetric counterparts
+        - most widely used symmetric key algorithms are part of the advanced encrption standard (AES)
+    - asymmetric encryption
+        - also known as public-key encryption, asymmetric encryption relies on two keys - a public and a private key - to encrypt and decrypt data
+        - keys are generated using cryptographic algorithms and are mathematically connected such that data encrypted with the public key can only be decrypted with the private key.
+        - private key must be kept secure to maintain the fidelity of this encryption paradigm and the public key can be openly shared
+- advanced encryption standard (aes)
+    - widely used encryption standard that has three symmetric-key algorithms (AES-128, AES-192, AES-256)
+    - considered as gold standard in encryption and is even used by us national security agency to encrypt top secret information
+- https
+    - extension of http used for secure communication online
+    - requires servers to have trusted certificates (ssl certificates) and uses transport layer security (tls), a security protocol built on top of tcp, to encrypt data communicated between a client and a server
+- ssl certificate
+    - a digital certificate granted to a server by a certificate authority
+        - contains server's public key to be used as part of the TLS handshake process in an https connectios
+    - effectively confirms that a public key belongs to the server claiming it belongs to themselves
+    - ssl certificates are a crucial defense against man-in-the-middle attacks
+- certificate authority
+    - a trusted entity that signs digital certificates- namely, ssl certificates that are relied on in https connections
+- tls handshake
+    - the process through which a client and a server communicating over https exchange encryption-related information and establish a secure connection
+    - tls handshake is as such:
+        - client sends a client hello - a string of random bytes - to the server
+        - server responds with a server hello- another string of random bytes- as well as its ssl certificate which contains its public key
+        - client verifies that the certificate was issued by a certificate authority and sends a premaster secret- yet another string of random bytes, encrypted with the server's public key- to the server
+        - the client and server use the client hello, server hello and the premaster secret to then generate the symmetric-encryption session keys, to be used to encrypt and decrypt all data communicated during the remainder of the connection
