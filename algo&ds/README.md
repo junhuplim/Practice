@@ -25,3 +25,20 @@
     - looking up a key: O(1) on average, O(n) in worse case
     - worst-case linear time operations occur when a hash table experiences a lot of collisions, leading to long linked lists internally which takes O(n) time to traverse
 - in context of interviews can typically assume hash functions employed by hash tables are so optimized that colisions are extremely rare and constant-time operations are guaranteed
+
+---
+### Stacks and Queues
+- stack is a array-like data structure that follows LIFO
+- typically implemented with a dynamic array
+- complexities
+    - pushing an element onto the stack: O(1)
+    - popping an element off the stack: O(1)
+    - peeking at the element on the top of the stack: O(1)
+    - searching for an element on the stack: O(n)
+- queue is an array-like data structure that follows FIFO
+- typically implemented with a doubly linked list
+- complexities
+    - enqueuing an element into the queue: O(1)
+    - dequeuing an element out the queue: O(1)
+    - peeking at the element at the front of the queue: O(1)
+    - searching for an element in the queue: O(n)
