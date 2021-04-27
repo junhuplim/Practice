@@ -430,3 +430,6 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
         - server responds with a server hello- another string of random bytes- as well as its ssl certificate which contains its public key
         - client verifies that the certificate was issued by a certificate authority and sends a premaster secret- yet another string of random bytes, encrypted with the server's public key- to the server
         - the client and server use the client hello, server hello and the premaster secret to then generate the symmetric-encryption session keys, to be used to encrypt and decrypt all data communicated during the remainder of the connection
+
+---
+### API Design
