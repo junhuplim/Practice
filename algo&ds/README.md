@@ -42,3 +42,23 @@
     - dequeuing an element out the queue: O(1)
     - peeking at the element at the front of the queue: O(1)
     - searching for an element in the queue: O(n)
+
+---
+### Graphs
+- collection of nodes or values called vertices that might be related; relation between vertices are called edges
+- cycle
+    - a cycle occurs in a graph when three or more vertices in the graph are connected so as to form a closed loop
+    - sometimes include cycles of length of two or one
+- acyclic graph vs cyclic graph
+    acyclic: graph with no cycles
+    cyclic graph: graph with at least one cycle
+- directed graph vs undirected graph
+    - directed: edges are directed
+    - undirected: edges are undirected - can be traversed in both directions
+- connected graph
+    - graph is connected if for every pair of vertices in the graph theres a path of one or more edges connecting the given vertices
+    - in case of directed graph
+        - strongly connected if there are bidirectional connections between the vertices of every pair of vertices
+        - weakly connected if there are connections (but not necessarily bidirectional ones) between the vertices of every pair of vertices
+    - graph that isnt connected is said to be disconnected
+- space complexity: O(v+e), can be stored in hashmaps
