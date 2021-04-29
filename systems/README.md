@@ -433,3 +433,9 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 
 ---
 ### API Design
+- pagination
+    - when a network request potentially warrants a really large response, the relevant api might be designed to return only a single page of that response; ie limited portion of the response, accompanied by an identifier or token for the client to request the next page if desired
+    - often used when designing list endpoints
+- crud operations
+    - create, read, update and delete operations
+    - these 4 operations often serve as the bedrock of a functioning system and therefore find themselves at the core of many api
