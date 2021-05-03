@@ -26,6 +26,14 @@
     - removing a value at the middle: O(n)
     - removing a value at the end: O(1)
     - copying the array: O(n)
+- static array vs dynamic array
+    - static array
+        - static array is allocated a fixed amount of memory to be used for storing the array's values
+        - appending values to the array therefore involves copying the entire array and allocating new memory for it, accounting for the extra space needed for the newly appended value - linear time operation
+    - dynamic array
+        - preemptively allocated double the amount of memory needed to store the array's values
+        - appending values to the array is a constant-time operation until allocated memory is filled up, at which point the array is copied and double the memory is once again allocated for is; this is amortized constant time insertation-at-end operatio.
+- js and python implement arrays as dynamic arrays while c++ and java implement as static arrays
 
 ---
 ### Hash Tables
