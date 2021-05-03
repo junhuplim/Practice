@@ -13,6 +13,21 @@
     - accessing a byte or a fixed number of bytes is an elementary operation; can be loosely treated as a single unit of operation work
 
 ---
+### Arrays
+- complexities
+    - accessing a value at a given index: O(1)
+    - updating a value at a given index: O(1)
+    - inserting a value at the beginning: O(n)
+    - inserting a value at the middle: O(n)
+    - inserting a value at the end:
+        - amortized O(1) with dynamic array
+        - O(n) with static array
+    - removing a value at the beginning: O(n)
+    - removing a value at the middle: O(n)
+    - removing a value at the end: O(1)
+    - copying the array: O(n)
+
+---
 ### Hash Tables
 - under the hood, hash tables uses a dynamic array of linked lists to efficiently store key-value pairs
     - when inserting a key-value pair, hash function first maps the key to an integer value and by extension, to an index in the underlying dynamic array
