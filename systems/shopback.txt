@@ -1,0 +1,28 @@
+handling huge traffic events like 1111 event
+- scale vertically alone will not work
+-> ensure the performance and reliability of the system
+(1) control the variables
+- deployment freezing
+    - deployment-freezing includes not only freezing the code changes but also the config changes, 3rd party libraries changes and process changes
+    - days before the event, have time to observe and manage new variables
+    - run load test to identify bottleneck, system limitations and possible risks
+- incident root cause review
+    - every incident should be seriously considered to be resolved entirely
+- production load test
+    - real traffic behaviour is almost impossible to simulate exactly and entirely
+    - however, still need to load test to understand the cluster's capacity to know the limit of scale-up/out and to find any potential bottlenecks
+(2) simulation
+- production load test and plan-walk-through
+- production load test is simulation of huge amount of concurrent web/app users to use the system
+- plan-walk-through is a none-tech practice; to have someone speak out what to do and what is the expected result in the end of a preparation meeting
+(3) learning from other events
+(4) find top few bottlenecks to improve
+- some APIs end points that is not able to handle high traffic well
+- some APIs consuming too much resources
+- some service are not stable and have bugs
+(5) plan for unexpected
+(6) d-day plan
+- on duty shift
+- run manual checks in d-1 day
+- one-spoken-man policy in d day
+- retrospective in d+1 day
