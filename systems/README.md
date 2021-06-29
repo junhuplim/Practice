@@ -12,7 +12,7 @@
         - 192.168.x.y: private network (machines on your private wifi network usually have the 192.168 prefix)
 
 - port
-    - for multiple programs to lsiten for new network connections on same machine without colliding, they pick a port to listen on
+    - for multiple programs to listen for new network connections on same machine without colliding, they pick a port to listen on
     - port is an integer between 0 and 65,535 (2^16 ports total)
     - typically ports 0-1023 are reserved for system ports and should not be used by user-level processes
     - some ports have pre-defined uses
@@ -335,7 +335,7 @@ ip, tcp were more of transportation of data. http introduces the opportunity to 
 
 ---
 ### Rate Limiting
-- act of limiting the number of requests sent to or from a systes
+- act of limiting the number of requests sent to or from a system
     - often used to limit the number of incoming requests in order to prevent DoS attacks
     - can be enforced at the IP-address level, user-account level or region leves
     - rate limiting can be implemented in tiers; for instance, a type of network req could be limited to 1 per second, 5 per 10seconds, 10 per minute
