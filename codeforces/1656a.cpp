@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
-#define fo(i,n) for(i=0;i<n;i++)
+#define fo(i,n) for(int i=0;i<n;i++)
 #define Fo(i,k,n) for(i=k;k<n?i<n:i>n;k<n?i+=1:i-=1)
 #define ll long long
 #define si(x)	scanf("%d",&x)
@@ -32,56 +32,33 @@ const int mod = 1000000007;
 const int N = 3e5, M = N;
 //=======================
 
-vi g[N];
-// int a[N];
-
 void solve() {
-  int n;
-	ll s=0, s_prime, x, y;
+	int n;
 	cin >> n;
-	vector<int> A(n+5);
-	for (int i; i<n; i++) cin >> A[i];
-
-	unordered_map<ll, int> first, second;
-	s += A[0];
-	first[A[0]]++;
-	for (int i = 1; i<n; i++) {
-		second[A[i]]++;
-		s+=A[i];}
-	// if sum is odd, return no
-	if (s & 1) {cout << "NO\n"; return;}
-	s_prime = 0;
-
-	for (int i = 0; i<n; i++) {
-		s_prime += A[i];
-		if (s_prime == s/2) {
-			cout << "YES\n";
-			return;
-		} else if (s_prime < s/2) {
-			y = s/2 - s_prime;
-			if (second[y] > 0) {
-				cout << "YES\n";
-				return;
-			}
-		} else {
-			x = s_prime - s/2;
-			if (first[x] > 0) {
-				cout << "YES\n";
-				return;
-			}
+	vi v(n);
+	for(int& x: v) cin>>x;
+	int minv = INT_MAX;
+	int maxv = -1;
+	int mini, maxi;
+	fo(i,n) {
+		if (v[i]>maxv) {
+			maxv = v[i];
+			maxi = i+1;
+		} 
+		if (v[i]<minv) {
+			minv = v[i];
+			mini = i+1;
 		}
-		first[A[i+1]]++;
-		second[A[i+1]]--;
 	}
-	cout << "NO" << endl;
+	cout << mini << " " << maxi << endl;
 }
 
 int main() {
     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-    int t = 1;
-    // cin >> t;
+    int t;
+    cin >> t;
     while(t--) {
       solve();
     }

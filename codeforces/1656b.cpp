@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define gc getchar_unlocked
-#define fo(i,n) for(i=0;i<n;i++)
+#define fo(i,n) for(int i=0;i<n;i++)
 #define Fo(i,k,n) for(i=k;k<n?i<n:i>n;k<n?i+=1:i-=1)
 #define ll long long
 #define si(x)	scanf("%d",&x)
@@ -32,28 +32,27 @@ const int mod = 1000000007;
 const int N = 3e5, M = N;
 //=======================
 
-vi g[N];
-int a[N];
-
 void solve() {
-  // int i, j, n, m;
-	ll ans=0, n;
-	cin>>n;
-	for (ll i=1; i <= n; i = i*10+1){
-		for (int d = 1; d <= 9; d++) {
-			if (i * d <= n) {
-				ans++;
-			}
-		}
+	int n, k;
+	cin >> n >> k;
+	vi v(n);
+	for(int& x: v) cin>>x;
+	bool ans(false);
+	sort(all(v));
+	int i(0), j(1);
+	while (j < n) {
+		if (v[j]-v[i] == k) {ans=true; break;}
+		else if (v[j]-v[i] < k) {++j;}
+		else {++i;}
 	}
-	cout << ans << endl;
+	cout << (ans? "Yes" : "No") << '\n';
 }
 
 int main() {
     ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
     srand(chrono::high_resolution_clock::now().time_since_epoch().count());
 
-    int t = 1;
+    int t;
     cin >> t;
     while(t--) {
       solve();
